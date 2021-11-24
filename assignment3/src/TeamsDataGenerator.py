@@ -7,7 +7,7 @@ import random as r
 teamNames = []
 teamCities = []
 # locate and read info from inputted csv files
-os.chdir('3309/KLOAP-3309/src')
+os.chdir('3309/KLOAP-3309/assignment3/src')
 cityList = pd.read_csv('uscities.csv', usecols=[1])
 with open('MTeams.csv') as teams:
     reader = csv.reader(teams, delimiter=",")
@@ -31,16 +31,16 @@ for i in range(1, len(teamNames)+1):
 # create rows
 for i in range(len(teamNames)):
     temp = []
-    # add ranking
-    randRank = r.randint(0, len(ranks)-1)
-    temp.append(ranks[randRank])
-    ranks.remove(ranks[randRank])
+    # add a random cityID
+    temp.append(r.randint(1, len(cityList)))
     # add conference
     temp.append(conferences[r.randint(0, len(conferences)-1)])
     # add team name
     temp.append(teamNames[i])
-    # add a random cityID
-    temp.append(r.randint(1, len(cityList)))
+    # add ranking
+    randRank = r.randint(0, len(ranks)-1)
+    temp.append(ranks[randRank])
+    ranks.remove(ranks[randRank])
     rows.append(temp)
 
 # create output csv and write all the rows
