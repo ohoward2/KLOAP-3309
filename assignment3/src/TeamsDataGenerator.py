@@ -33,10 +33,10 @@ for i in range(len(teamNames)):
     temp = []
     # add a random cityID
     temp.append(r.randint(1, len(cityList)))
-    # add conference
-    temp.append(conferences[r.randint(0, len(conferences)-1)])
     # add team name
     temp.append(teamNames[i])
+    # add conference
+    temp.append(conferences[r.randint(0, len(conferences)-1)])
     # add ranking
     randRank = r.randint(0, len(ranks)-1)
     temp.append(ranks[randRank])
