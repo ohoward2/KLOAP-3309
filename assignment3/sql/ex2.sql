@@ -1,4 +1,4 @@
-USE scouting_athlete;
+USE scouting;
 DROP TABLE IF EXISTS TournamentParticipations;
 DROP TABLE IF EXISTS Tournament;
 DROP TABLE IF EXISTS Scout;
@@ -26,7 +26,7 @@ CREATE TABLE Team (
 	tName VARCHAR(30) NOT NULL,
 	tConference VARCHAR(30) NOT NULL,
 	ranking INT,
-	UNIQUE (tName, tConference),
+	UNIQUE (tConference, tName),
     PRIMARY KEY (tConference, tName),
 	FOREIGN KEY (cityID) REFERENCES City (cityID)
 );
@@ -37,8 +37,8 @@ CREATE TABLE Coach (
     cName VARCHAR(30),
     tName VARCHAR(30) NOT NULL,
     tConference VARCHAR(30) NOT NULL,
-    FOREIGN KEY (tConference) REFERENCES Team (tConference),
-    FOREIGN KEY (tName) REFERENCES Team (tName)
+    FOREIGN KEY (tConference, tName) REFERENCES Team (tConference, tName)
+   
 );
 
 CREATE TABLE Athlete (
