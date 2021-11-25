@@ -1,5 +1,5 @@
 DELETE FROM Athlete WHERE age>22;
 
-UPDATE Team SET country='United States' WHERE ranking<5 AND country='Canada';
+DELETE FROM Athlete WHERE age<19 AND height<185 AND weight<85;
 
 UPDATE Athlete SET aPosition='Center' WHERE height>213 AND weight>125;
