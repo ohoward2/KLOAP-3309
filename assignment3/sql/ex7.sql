@@ -17,7 +17,7 @@ AND a.tConference = t.tConference
 AND c.cityID = t.cityID
 AND  a.position = 'Point Guard';
 
-CREATE VIEW CenterGeologicalDensity
+CREATE VIEW CenterGeographicalDensity
 AS SELECT a.aName, a.position, a.tName,t.ranking, count(*)
 FROM Athlete a, City c, Team t
 WHERE  a.position = 'Center'
