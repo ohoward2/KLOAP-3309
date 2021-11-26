@@ -22,7 +22,7 @@ AND a.position = 'Point Guard';
 
 SELECT COUNT(playerNo), tConference FROM Athlete GROUP BY tConference;
 
-SELECT AVG(SELECT age FROM Athlete WHERE age>20), tConference FROM Athlete GROUP BY tConference;
+SELECT AVG(x.age) FROM (SELECT * FROM Athlete WHERE age>20) x, tConference FROM Athlete GROUP BY tConference;
 
 SELECT a.playerNo, a.aName, a.position, t.tName,t.tConference,t.ranking,c.cityID,c.cityName,c.cityCountry
 FROM Athlete a, Team t, City c
