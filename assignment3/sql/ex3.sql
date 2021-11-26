@@ -1,4 +1,4 @@
-USE scouting_athlete;
+USE scouting;
 
 INSERT INTO City (cityID, cityName, country) VALUES
 	(19086, 'London', 'Canada');
