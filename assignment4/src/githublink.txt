@@ -1,2 +1,0 @@
-Here is the code for our React App for assignment 4
-https://github.com/pmoeini1/3309-webapp
