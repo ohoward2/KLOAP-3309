@@ -1,0 +1,56 @@
+-- MySQL dump 10.13  Distrib 8.0.27, for Win64 (x86_64)
+--
+-- Host: localhost    Database: scouting
+-- ------------------------------------------------------
+-- Server version	8.0.27
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `team`
+--
+
+DROP TABLE IF EXISTS `team`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `team` (
+  `cityID` int NOT NULL,
+  `tName` varchar(30) NOT NULL,
+  `tConference` varchar(30) NOT NULL,
+  `ranking` int DEFAULT NULL,
+  PRIMARY KEY (`tConference`,`tName`),
+  UNIQUE KEY `tConference` (`tConference`,`tName`),
+  KEY `cityID` (`cityID`),
+  CONSTRAINT `team_ibfk_1` FOREIGN KEY (`cityID`) REFERENCES `city` (`cityID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `team`
+--
+
+LOCK TABLES `team` WRITE;
+/*!40000 ALTER TABLE `team` DISABLE KEYS */;
+INSERT INTO `team` VALUES (14468,'Akron','ACC',68),(3761,'Ark Little Rock','ACC',65),(19818,'Arkansas','ACC',156),(13808,'Baylor','ACC',81),(2562,'Binghamton','ACC',253),(28211,'Cornell','ACC',185),(15269,'CS Fullerton','ACC',344),(23774,'CS Sacramento','ACC',61),(21325,'Denver','ACC',335),(3419,'DePaul','ACC',165),(26098,'ETSU','ACC',299),(7359,'Georgia','ACC',64),(1871,'Hawaii','ACC',26),(22442,'Lipscomb','ACC',303),(1662,'Monmouth NJ','ACC',106),(18164,'Montana St','ACC',60),(15284,'Murray St','ACC',331),(17849,'Oklahoma','ACC',220),(24144,'Robert Morris','ACC',120),(10384,'SUNY Albany','ACC',47),(9849,'Syracuse','ACC',320),(5762,'Tennessee','ACC',17),(26744,'Tennessee Tech','ACC',213),(4555,'UT Arlington','ACC',270),(18059,'Valparaiso','ACC',310),(20377,'Auburn','Atlantic Coast',286),(3278,'Bowling Green','Atlantic Coast',328),(2151,'Brown','Atlantic Coast',6),(6571,'Bryant','Atlantic Coast',146),(4087,'BYU','Atlantic Coast',29),(14814,'Coastal Car','Atlantic Coast',314),(11867,'CS Bakersfield','Atlantic Coast',187),(24191,'Idaho St','Atlantic Coast',248),(15318,'Jacksonville St','Atlantic Coast',13),(6015,'Liberty','Atlantic Coast',225),(19747,'Long Beach St','Atlantic Coast',189),(19653,'McNeese St','Atlantic Coast',164),(10952,'Memphis','Atlantic Coast',127),(7604,'MS Valley St','Atlantic Coast',71),(4670,'North Florida','Atlantic Coast',86),(8509,'Northwestern LA','Atlantic Coast',301),(25839,'Ohio','Atlantic Coast',199),(19003,'Richmond','Atlantic Coast',89),(8744,'Seton Hall','Atlantic Coast',88),(8902,'Stetson','Atlantic Coast',119),(17878,'TCU','Atlantic Coast',234),(19353,'Utah St','Atlantic Coast',265),(1306,'Virginia','Atlantic Coast',233),(10883,'Wake Forest','Atlantic Coast',263),(15066,'William & Mary','Atlantic Coast',342),(4921,'Alabama','BIG 10',63),(26813,'Colgate','BIG 10',75),(18596,'Duke','BIG 10',321),(24040,'Duquesne','BIG 10',329),(6261,'Fairfield','BIG 10',240),(13635,'Houston','BIG 10',242),(17888,'Loy Marymount','BIG 10',104),(6297,'Marist','BIG 10',69),(1433,'Marquette','BIG 10',300),(26048,'N Dakota St','BIG 10',255),(10805,'Northeastern','BIG 10',326),(12748,'Oakland','BIG 10',208),(21480,'Old Dominion','BIG 10',73),(26993,'Radford','BIG 10',131),(17164,'San Jose St','BIG 10',21),(14078,'UTEP','BIG 10',277),(8471,'Wagner','BIG 10',103),(23796,'Washington St','BIG 10',292),(1028,'Alabama St','BIG 12',257),(20009,'American Univ','BIG 12',99),(829,'Arizona','BIG 12',309),(17452,'Bellarmine','BIG 12',46),(24117,'Grambling','BIG 12',259),(8533,'Hampton','BIG 12',267),(26614,'Illinois St','BIG 12',111),(7136,'LIU Brooklyn','BIG 12',288),(20050,'Manhattan','BIG 12',283),(4486,'Missouri St','BIG 12',361),(2198,'Niagara','BIG 12',77),(2946,'North Carolina','BIG 12',183),(5941,'Penn St','BIG 12',339),(17245,'Presbyterian','BIG 12',235),(27963,'Princeton','BIG 12',123),(886,'S Illinois','BIG 12',313),(13048,'Sacred Heart','BIG 12',141),(5810,'SE Louisiana','BIG 12',252),(27727,'St John\'s','BIG 12',365),(16624,'Stony Brook','BIG 12',30),(18027,'Texas A&M','BIG 12',280),(5268,'ULM','BIG 12',359),(25643,'UNC Greensboro','BIG 12',298),(9164,'W Michigan','BIG 12',55),(1475,'WI Milwaukee','BIG 12',276),(19086,'Western','Canada',372),(20488,'C Michigan','Conference USA',290),(6,'Chattanooga','Conference USA',139),(17694,'Drexel','Conference USA',138),(9146,'FL Atlantic','Conference USA',306),(26471,'Fresno St','Conference USA',107),(7840,'Georgetown','Conference USA',271),(3056,'Georgia Tech','Conference USA',346),(26536,'Kent','Conference USA',200),(3694,'Miami OH','Conference USA',223),(7740,'Missouri KC','Conference USA',124),(11806,'North Alabama','Conference USA',273),(10116,'Rice','Conference USA',112),(25727,'SIUE','Conference USA',249),(17969,'UMBC','Conference USA',231),(20033,'UNC Asheville','Conference USA',348),(24047,'Utah Valley','Conference USA',140),(1143,'VMI','Conference USA',370),(28227,'Boise St','FBS',132),(18433,'Bradley','FBS',190),(4464,'California','FBS',218),(21416,'Colorado','FBS',302),(5143,'Dixie St','FBS',289),(5923,'Kansas St','FBS',174),(17364,'LSU','FBS',147),(19379,'Marshall','FBS',130),(16460,'MD E Shore','FBS',36),(8422,'Mississippi St','FBS',266),(13621,'Morgan St','FBS',42),(25458,'Nebraska','FBS',31),(12084,'North Texas','FBS',5),(9391,'Prairie View','FBS',244),(27580,'Texas Tech','FBS',343),(776,'UNLV','FBS',62),(864,'VCU','FBS',155),(4750,'Virginia Tech','FBS',66),(9179,'W Illinois','FBS',100),(8767,'W Texas A&M','FBS',96),(18129,'Washington','FBS',254),(8999,'Weber St','FBS',350),(26286,'Wofford','FBS',98),(24577,'Armstrong St','Mid-American',224),(10143,'Bucknell','Mid-American',356),(2101,'Cal Baptist','Mid-American',195),(2292,'Campbell','Mid-American',284),(2224,'Cent Arkansas','Mid-American',227),(7712,'Charleston So','Mid-American',94),(3384,'Charlotte','Mid-American',279),(7038,'Chicago St','Mid-American',39),(2853,'Clemson','Mid-American',23),(23425,'Coppin St','Mid-American',204),(23485,'Creighton','Mid-American',169),(21518,'Drake','Mid-American',222),(2009,'Evansville','Mid-American',345),(25869,'Ga Southern','Mid-American',318),(15533,'Lehigh','Mid-American',3),(24801,'Longwood','Mid-American',12),(21712,'N Kentucky','Mid-American',341),(25153,'NC Central','Mid-American',247),(5152,'NE Omaha','Mid-American',315),(9718,'Rider','Mid-American',121),(6331,'Santa Clara','Mid-American',80),(7515,'SC Upstate','Mid-American',18),(21710,'St Francis NY','Mid-American',148),(25866,'St Joseph\'s PA','Mid-American',316),(11167,'St Louis','Mid-American',175),(11249,'Texas','Mid-American',52),(24327,'UC Irvine','Mid-American',22),(11446,'Vermont','Mid-American',72),(27074,'West Virginia','Mid-American',237),(16770,'WI Green Bay','Mid-American',16),(23693,'Wisconsin','Mid-American',211),(15746,'WKU','Mid-American',129),(22169,'Youngstown St','Mid-American',74),(16150,'Ball St','Mountain West',209),(22584,'Boston Univ','Mountain West',84),(10219,'Cleveland St','Mountain West',158),(4920,'Dartmouth','Mountain West',83),(14821,'Delaware St','Mountain West',93),(5068,'E Michigan','Mountain West',291),(899,'Florida Intl','Mountain West',226),(4466,'George Mason','Mountain West',285),(8051,'Georgia St','Mountain West',216),(27643,'Hofstra','Mountain West',134),(25223,'Houston Bap','Mountain West',364),(5781,'Illinois','Mountain West',367),(9646,'Indiana St','Mountain West',221),(5008,'Jackson St','Mountain West',198),(17406,'Jacksonville','Mountain West',20),(1591,'Loyola MD','Mountain West',19),(23860,'Loyola-Chicago','Mountain West',4),(1061,'MA Lowell','Mountain West',168),(1890,'Maine','Mountain West',230),(15689,'Michigan St','Mountain West',178),(2331,'Nevada','Mountain West',176),(10080,'Nicholls St','Mountain West',256),(6051,'North Dakota','Mountain West',67),(8619,'Notre Dame','Mountain West',38),(7313,'Portland St','Mountain West',358),(20560,'Purdue','Mountain West',307),(12800,'SE Missouri St','Mountain West',268),(5233,'SMU','Mountain West',135),(1759,'TN Martin','Mountain West',205),(2805,'UC Riverside','Mountain West',193),(6980,'USC','Mountain West',238),(1394,'Alabama A&M','PAC-12',261),(12109,'Arkansas St','PAC-12',97),(19156,'Columbia','PAC-12',126),(16708,'Harvard','PAC-12',108),(387,'Kansas','PAC-12',362),(24623,'Maryland','PAC-12',368),(3196,'Michigan','PAC-12',44),(11201,'Mississippi','PAC-12',154),(1347,'Penn','PAC-12',319),(16996,'San Francisco','PAC-12',352),(8285,'St Bonaventure','PAC-12',269),(20833,'St Peter\'s','PAC-12',287),(23569,'Tennessee St','PAC-12',369),(7573,'Tulane','PAC-12',192),(23188,'TX Southern','PAC-12',9),(17797,'Abilene Chr','SEC',10),(26226,'Ark Pine Bluff','SEC',125),(15852,'Army','SEC',25),(19809,'Augusta','SEC',114),(6163,'Buffalo','SEC',262),(9478,'Canisius','SEC',188),(10762,'FL Gulf Coast','SEC',214),(7647,'Fordham','SEC',122),(25548,'Hartford','SEC',250),(17375,'Howard','SEC',2),(4005,'Iowa St','SEC',212),(2641,'James Madison','SEC',82),(11008,'Mercer','SEC',337),(18069,'Merrimack','SEC',41),(7234,'Montana','SEC',360),(57,'Morris Brown','SEC',327),(9677,'Mt St Mary\'s','SEC',351),(8987,'N Illinois','SEC',153),(7855,'NC A&T','SEC',371),(10742,'Pacific','SEC',173),(15792,'S Dakota St','SEC',366),(983,'SF Austin','SEC',312),(27254,'South Carolina','SEC',78),(24530,'St Francis PA','SEC',354),(7239,'St Mary\'s CA','SEC',191),(20423,'Towson','SEC',113),(1664,'Troy','SEC',251),(20772,'Villanova','SEC',363),(16032,'Birmingham So','Sun Belt',228),(21655,'Butler','Sun Belt',207),(20160,'Cal Poly','Sun Belt',105),(4524,'Central Conn','Sun Belt',182),(2796,'E Kentucky','Sun Belt',152),(22535,'East Carolina','Sun Belt',295),(13684,'Florida','Sun Belt',194),(1422,'Furman','Sun Belt',347),(3101,'High Point','Sun Belt',92),(16262,'Holy Cross','Sun Belt',167),(27851,'Louisville','Sun Belt',128),(25412,'N Colorado','Sun Belt',32),(25286,'Okla City','Sun Belt',201),(79,'Oral Roberts','Sun Belt',142),(977,'Oregon','Sun Belt',59),(1229,'PFW','Sun Belt',294),(15155,'Rutgers','Sun Belt',275),(724,'South Dakota','Sun Belt',177),(26626,'TAM C. Christi','Sun Belt',196),(16570,'UAB','Sun Belt',45),(26554,'UC Santa Barbara','Sun Belt',336),(22700,'UCLA','Sun Belt',171),(3062,'W Salem St','Sun Belt',143),(23349,'Wichita St','Sun Belt',1);
+/*!40000 ALTER TABLE `team` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2021-12-02 16:26:41
